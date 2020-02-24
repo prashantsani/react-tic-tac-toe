@@ -6,11 +6,13 @@ $pink: #D95995;
 $grey: #011826;
 $blue-dark: #0378A6;
 $blue: #04B2D9;
+$cell-size: 80px;
 
 // Resets, Global
 html{
   background: $bg;
   color: white;
+  font-family: 'Open Sans', sans-serif;
 }
 
 // Game 
@@ -73,15 +75,17 @@ html{
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
-  width: 80px;
-  height: 80px;
+  width: $cell-size;
+  height: $cell-size;
   display:  block;
   text-align: center;
   font-weight: bold;
-  font-size: 40px;
-  line-height: 80px;
+  //font-size: calc(#{$cell-size} / 2);
+  line-height: $cell-size;
   border: none;
   outline: none;
+  font-size: 0;
+  position: relative;
 
   .turn-0 &.cell-x,
   .turn-x &.cell-0{
@@ -93,9 +97,57 @@ html{
     outline: none;
   }
   &-x{
-    color: #04B2D9;
+    color: $blue;
+
+    &:after,
+    &:before{
+      transition: all 0.3s ease-in-out;      
+      left: 50%;
+      top: 10%;
+      height: calc(#{$cell-size} * 0.8);
+      width: 10px;
+      display: block;
+      content: '';
+      background: $blue;
+      position: absolute;
+      margin-left: -10px;
+    }
+
+    &:before{
+      transform: rotate(45deg);
+    }
+
+    &:after{
+      transform: rotate(-45deg);
+    }
   }
   &-0{
     color: #D95995;
+
+    &:after,
+    &:before{
+      transition: all 0.3s ease-in-out;      
+      left: 50%;
+      top: 50%;
+      display: block;
+      content: '';
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    &:before{
+      width: calc(#{$cell-size} *0.8);
+      height: calc(#{$cell-size} *0.8);
+      background: $pink;
+      z-index: 1;
+    }
+
+    &:after{
+      width: calc(#{$cell-size} *0.5);
+      height: calc(#{$cell-size} *0.5);
+      background: $bg;
+      z-index: 2;
+    }
   }
 }
