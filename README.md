@@ -1,8 +1,16 @@
+# React Tic Tac Toe
+
+### Project URL : https://prashantsani.github.io/react-tic-tac-toe/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn run deploy`
+Runs the deployment of the app on [this URL](https://prashantsani.github.io/react-tic-tac-toe/).
 
 ### `yarn start`
 

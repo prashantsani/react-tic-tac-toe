@@ -81,7 +81,7 @@ export default class Game extends Component {
             xIsNext: !this.state.xIsNext,
             stepNumber: history.length,
             game_grid: cells.reduce(function (rows, key, index) { 
-                        return (index % 3 == 0 ? rows.push([key]) 
+                        return (index % 3 === 0 ? rows.push([key]) 
                         : rows[rows.length-1].push(key)) && rows;
                     }, [])
         });
