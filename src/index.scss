@@ -21,21 +21,22 @@ html{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  display: flex;
-  flex-direction: row;
   margin: 0 auto;
+  width: calc(#{$cell-size} * 3);
+  height: calc(#{$cell-size} * 3);
 }
 .game-info{
-  margin-left: 20px;
+  margin-top: 30px;
+  text-align: center;
   ol{
     padding-left: 30px;
   }
 }
-.status{
-  margin-bottom: 10px
-}
 .game-board{
   position: relative;
+  /* 3 columns and 3 rows */
+  width: calc(#{$cell-size} * 3);
+  height: calc(#{$cell-size} * 3);
 }
 .grid-row,
 .grid-column{
@@ -122,7 +123,7 @@ html{
     }
   }
   &-0{
-    color: #D95995;
+    color: $pink;
 
     &:after,
     &:before{
@@ -150,4 +151,30 @@ html{
       z-index: 2;
     }
   }
+}
+.restart-game{
+  display: inline-block;
+  width: 80px;
+  line-height: 26px;
+  font-family: inherit;
+  font-size: 18px;
+  margin-top: 30px;
+  border: none;
+  outline: none;
+  
+  .winner-is-0 &{
+    background: $pink;
+  }
+
+  .winner-is-x &{
+    background: $blue;
+  }
+}
+
+// Display Properties
+.d-none{
+  display: none;
+}
+.d-block{
+  display: block;
 }
